@@ -28,6 +28,7 @@
     height: 28vh;
     width: 55%;
     margin: 15px;
+    border-radius: 50%;
 }
 .loginsecondrow{
     height: 50vh;  
@@ -78,6 +79,7 @@
     width: 75%;
     font:normal 10px "Product Sans";
     font-family: Arial,sans-serif; 
+    cursor: pointer;
 }
 .LoginButton,.or{
     margin-top: 15px;

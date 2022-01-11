@@ -38,7 +38,7 @@ function Signup(props) {
                      <div className="text">Password</div>
                  </div>
                  <div className="PasswordInput">
-                 <Input  size="middle" style={{width:280,backgroundColor:'transparent'}}  />
+                 <Input.Password  size="middle" style={{width:280,backgroundColor:'transparent'}}  />
                  </div>
                  <div className="PhoneNumber">
                      <div className="text">PhoneNumber</div>
