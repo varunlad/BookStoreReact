@@ -9,7 +9,7 @@ function Forgotpassword() {
     return (
         <div className="ForgotOutLine">
             <div className="ForgotHeader">
-                <div className="Education">
+                <div className="Education"> 
                 <img src={img} alt="" class="Edu"/>
                 BookStore
                 </div>
