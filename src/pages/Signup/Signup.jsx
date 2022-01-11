@@ -15,8 +15,8 @@ function Signup() {
              </div>
              <div className="loginsecondrow">
                  <div className="loginsecondrow2">
-                    <div className="loginsecondrow2a">LOGIN</div>
-                    <div className="loginsecondrow2b">SIGNUP</div>
+                    <div className="loginsecondrow2aa">LOGIN</div>
+                    <div className="loginsecondrow2bb">SIGNUP</div>
                  </div>
                  <div className="FullName">
                      <div className="text">FullName</div>
