@@ -1,0 +1,10 @@
+.FullName,.PhoneNumber,.Email,.Password{
+    height: 2vh;  
+    width: 75%;
+    margin-top: 5px;
+    font:normal 10px "Product Sans";
+    font-family: Arial,sans-serif;  
+}
+.EmailInput,.PasswordInput{
+    margin-bottom: 10px;
+}
