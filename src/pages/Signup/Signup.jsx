@@ -5,7 +5,11 @@ import { Button } from 'antd';
 import img from '../../asserts/2766594@2x.png'
 import { Input, Space } from 'antd';
 
-function Signup() {
+function Signup(props) {
+    const takeclick =  () => {
+        console.log(props)
+        props.listentologinnote1(false)
+    }
     return (
         <div className="login-main">
          <div className="loginfirstdiv">
@@ -15,8 +19,8 @@ function Signup() {
              </div>
              <div className="loginsecondrow">
                  <div className="loginsecondrow2">
-                    <div className="loginsecondrow2aa">LOGIN</div>
-                    <div className="loginsecondrow2bb">SIGNUP</div>
+                    <div className="loginsecondrow2aa"  onClick={takeclick}>LOGIN</div>
+                    <div className="loginsecondrow2bb" >SIGNUP</div>
                  </div>
                  <div className="FullName">
                      <div className="text">FullName</div>
