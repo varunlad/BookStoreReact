@@ -47,7 +47,7 @@ function Signup(props) {
                  <Input  size="middle" style={{width:280,backgroundColor:'transparent'}}  />
                  </div>
                  <div className="LoginButton">
-                     <Button type="primary" danger style={{width:280}}>Login</Button>   
+                     <Button type="primary" danger style={{width:280}}>SignUp</Button>   
                  </div>                
              </div>
              </div>   
