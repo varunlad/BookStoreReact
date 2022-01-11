@@ -3,9 +3,10 @@ import './Forgotpassword.css'
 import img from '../../asserts/edu.webp'
 import { Input, Space } from 'antd';
 import { Button } from 'antd';
-
+import { useHistory } from "react-router-dom";
 
 function Forgotpassword() {
+    let history=useHistory();
     return (
         <div className="ForgotOutLine">
             <div className="ForgotHeader">
@@ -33,7 +34,7 @@ function Forgotpassword() {
                      <Button type="primary" danger style={{width:230}}>Reset Password</Button>   
                  </div>
                  <div className="forgotcreateaccount"> 
-                    <Button type="text" style={{width:120,backgroundColor:'whitesmoke'}}>Create Account</Button>                
+                    <Button type="text" onClick={()=>(history.push('/'))}  style={{width:120,backgroundColor:'whitesmoke'}}>Create Account</Button>                
                  </div>
                </div> 
                </div>

@@ -5,9 +5,10 @@ import "antd/dist/antd.css";
 import { Button } from 'antd';
 import img from '../../asserts/2766594@2x.png'
 import { Input, Space } from 'antd';
+import { useHistory } from "react-router-dom";
 
 function Login(props) {
-  
+    let history=useHistory();
     const takeclick2 =  () => {
         console.log(props)
         props.listentologinnote1(true)
@@ -37,7 +38,7 @@ function Login(props) {
                  <Input  size="middle" style={{width:280,backgroundColor:'transparent'}}  />
                  </div>
                  <div className="ForgotPassword">
-                     <p>Forgot Password?</p>
+                     <p onClick={()=>(history.push('/forgotpassword'))} >Forgot Password?</p>
                  </div>
                  <div className="LoginButton">
                      <Button type="primary" danger style={{width:280}}>Login</Button>   

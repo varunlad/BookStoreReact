@@ -4,6 +4,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Forgotpassword from './pages/Forgotpassword/Forgotpassword';
 import Dashboard from './pages/Dashboard/Dashboard';
+import RouterDom from './pages/Router/Router';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <Login /> */}
       {/* <Signup /> */}
       {/* <Forgotpassword /> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <RouterDom />
     </div>
   );
 }
