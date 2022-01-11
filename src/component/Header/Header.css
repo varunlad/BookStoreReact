@@ -1,0 +1,69 @@
+.HeaderContainer{
+    display: flex;
+    height: 8vh;
+    width: 100%;
+    background-color: maroon;
+
+}
+.Header{
+    height: 8vh;
+    width: 15%;
+}
+.Booklogo{
+    position: relative;
+    left: 200px;
+    font:normal 15px "Product Sans";
+    font-family: Arial,sans-serif;
+    color: white;
+}
+.logo{
+    height: 3vh;
+    width: 15%;
+    margin: 15px;
+    position: relative;
+    left: 10px;
+}
+.HeaderSearch{
+    height: 8vh;
+    width: 30%;
+    position: relative;
+    left: 200px;
+    display: flex;
+    align-items: center;
+}
+#aa1{
+    height: 3.5vh;
+    width: 3wh;
+    margin-bottom: 5px;
+}
+.HeaderProfil{
+    display: flex;
+    color: white;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 8vh;
+    width: 5%;
+    position:relative;
+    left: 400px;
+}
+.logo2{
+    height: 4vh;
+    width:50%;
+    margin-top: 10px;
+}
+.HeaderCart{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    height: 8vh;
+    width: 5%;
+    position:relative;
+    left: 450px;
+}
+.logo3{
+    height: 4vh;
+    width:50%;
+    margin-top: 10px; 
+}

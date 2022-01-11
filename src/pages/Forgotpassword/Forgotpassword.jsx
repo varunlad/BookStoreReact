@@ -1,6 +1,6 @@
 import React from 'react'
 import './Forgotpassword.css'
-import img from '../../asserts/edu.webp'
+import img from '../../asserts/booklogo.png'
 import { Input, Space } from 'antd';
 import { Button } from 'antd';
 import { useHistory } from "react-router-dom";
