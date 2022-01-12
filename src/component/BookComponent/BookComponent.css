@@ -43,3 +43,15 @@
 .fainttext{
     color:gray;
 }
+#div2da{
+    margin-left: 10px;
+    text-decoration: line-through;
+}
+.div2d{
+    display: flex;
+}
+.satrclass{
+    height: 3vh;
+    width: 15%;
+    margin-right: 10px;
+}

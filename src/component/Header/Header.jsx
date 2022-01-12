@@ -6,6 +6,7 @@ import img2 from '../../asserts/profilelogo2.jpeg'
 import img4 from '../../asserts/cart.jpg'
 import { Input } from 'antd'
 import Profilepopper from '../Profilepoper/Profilepopper'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 function Header() {
     return (
@@ -28,7 +29,8 @@ function Header() {
             <h5 className="ts"> Profile</h5>
             </div>
             <div className="HeaderCart">
-            <img src={img4} alt="" style={{backgroundColor:'transperent',border:null,borderColor:'transparent'}} class="logo3"/> 
+            {/* <img src={img4} alt="" style={{backgroundColor:'transperent',border:null,borderColor:'transparent'}} class="logo3"/>  */}
+            <ShoppingCartOutlinedIcon/>
             <h5 className="ts"> Cart</h5>
             </div>
         </div>
