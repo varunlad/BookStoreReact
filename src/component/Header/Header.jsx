@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css'
 import img from '../../asserts/booklogo.png'
 import img3 from '../../asserts/search.svg'
-import img2 from '../../asserts/pfofile.jpg'
+import img2 from '../../asserts/profilelogo2.jpeg'
 import img4 from '../../asserts/cart.jpg'
 import { Input } from 'antd'
 
@@ -10,7 +10,7 @@ function Header() {
     return (
         <div className="HeaderContainer">
             <div className="Header">
-                <div className="Booklogo"> 
+                <div className="Booklogo1"> 
                 <img src={img} alt="" class="logo"/>
                 BookStore
                 </div>               
@@ -26,7 +26,7 @@ function Header() {
              Profile
             </div>
             <div className="HeaderCart">
-            <img src={img4} alt="" class="logo3"/> 
+            <img src={img4} alt="" style={{backgroundColor:'transperent',border:null,borderColor:'transparent'}} class="logo3"/> 
             Cart
             </div>
         </div>

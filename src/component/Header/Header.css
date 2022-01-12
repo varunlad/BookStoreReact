@@ -9,12 +9,13 @@
     height: 8vh;
     width: 15%;
 }
-.Booklogo{
+.Booklogo1{
     position: relative;
     left: 200px;
     font:normal 15px "Product Sans";
     font-family: Arial,sans-serif;
     color: white;
+    margin-top: 5px;
 }
 .logo{
     height: 3vh;
@@ -48,7 +49,7 @@
     left: 400px;
 }
 .logo2{
-    height: 4vh;
+    height: 3vh;
     width:50%;
     margin-top: 10px;
 }
