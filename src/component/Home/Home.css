@@ -2,3 +2,33 @@
     height: 99vh;
     width: 100%;
 }
+.BookContent{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.BookHeader{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    width: 70%;
+    position: relative;
+    left: 220px;  
+}
+.BookHeader1{
+    font-size: 20px;
+}
+.BookHeader2{
+    color: gray;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.Books{
+    display: flex;
+    height: 90vh;
+    width: 72%;
+    position: relative;
+    left: 200px;   
+}

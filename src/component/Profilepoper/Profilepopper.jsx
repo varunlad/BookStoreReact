@@ -2,6 +2,8 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import img2 from '../../asserts/profilelogo2.jpeg'
+import img3 from '../../asserts/heart.jpeg'
+import img from '../../asserts/orders.jpeg'
 import './Profilepopper.css'
 import { Button } from 'antd';
 
@@ -31,9 +33,11 @@ function Profilepopper() {
               ---------------------------------------------- 
             </div>
             <div className="pop5">
+              <img src={img} class="heart" />
                 My Orders
             </div>
             <div className="pop6">
+            <img src={img3} class="heart" />
                 Wishlist
             </div>
             </div>
