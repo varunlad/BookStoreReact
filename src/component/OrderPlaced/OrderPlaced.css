@@ -1,0 +1,41 @@
+.OrdersDetails{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.orderdetail1{
+    height: 70vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.orderdetail1a{
+    height: 50vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column; 
+   
+}
+.textplaced{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+.table{
+    width:100%;
+}
+#primary{
+    position: relative;
+    left: 100px;
+}
+.Bottomab{
+
+    height: 20%;
+    width: 20%;
+}

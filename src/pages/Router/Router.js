@@ -11,6 +11,7 @@ import Home from '../../component/Home/Home';
 import Wishlist from '../../component/Wishlist/Wishlist';
 import PleaseLogin from '../../component/PleaseLogin/PleaseLogin';
 import Orders from '../../component/Orders/Orders';
+import OrderPlaced from '../../component/OrderPlaced/OrderPlaced';
 
 
 function RouterDom() {
@@ -23,6 +24,7 @@ function RouterDom() {
                   <Route path = "/Wishlist" component = {Wishlist}/>
                   <Route path = "/pleaselogin" component = {PleaseLogin}/>
                   <Route path = "/myorders" component = {Orders}/>
+                  <Route path = "/orderplaced" component = {OrderPlaced}/>
              </Switch>
         </Router>
     )
