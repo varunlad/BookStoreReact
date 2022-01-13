@@ -18,8 +18,10 @@ function BookComponent() {
                     by varunlad
                 </div>
                 <div className="div2c">
+                    <div className="aa">
                     <div className="divc2ca">4.5 </div>
                     <img src={img3} alt="" className="satrclass" />
+                    </div>
                     <div className="fainttext">(20)</div>
                 </div>
                 <div className="div2d">

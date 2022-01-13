@@ -6,8 +6,10 @@ import img3 from '../../asserts/heart.jpeg'
 import img from '../../asserts/orders.jpeg'
 import './Profilepopper.css'
 import { Button } from 'antd';
+import { useHistory } from "react-router-dom";
 
 function Profilepopper() {
+  let history=useHistory();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
         setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -28,7 +30,7 @@ function Profilepopper() {
             <div className="pop2">
                 To access account and manage orders
             </div >
-            <Button className="pop3" style={{width:120,borderBlockColor:'maroon',color:'maroon',outlineColor:'maroon'}} >Login/Signup</Button>
+            <Button className="pop3" style={{width:120,borderBlockColor:'maroon',color:'maroon',outlineColor:'maroon'}} onClick={()=>(history.push('/'))} >Login/Signup</Button>
             <div className="pop4">
               ---------------------------------------------- 
             </div>

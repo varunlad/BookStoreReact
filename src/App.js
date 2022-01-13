@@ -6,6 +6,7 @@ import Forgotpassword from './pages/Forgotpassword/Forgotpassword';
 import Dashboard from './pages/Dashboard/Dashboard';
 import RouterDom from './pages/Router/Router';
 import Home from './component/Home/Home';
+import Wishlist from './component/Wishlist/Wishlist';
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       {/* <Signup /> */}
       {/* <Forgotpassword /> */}
       {/* <Dashboard /> */}
-      {/* <RouterDom /> */}
-      <Home />
+      <RouterDom />
+      {/* <Wishlist /> */}
+      {/* <Home /> */}
     </div>
   );
 }

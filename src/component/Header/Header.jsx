@@ -7,8 +7,10 @@ import img4 from '../../asserts/cart.jpg'
 import { Input } from 'antd'
 import Profilepopper from '../Profilepoper/Profilepopper'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useHistory } from "react-router-dom";
 
 function Header() {
+    let history=useHistory();
     return (
         <div className="HeaderContainer">
             <div className="Header">
@@ -24,13 +26,11 @@ function Header() {
                 </div>              
             </div>
             <div className="HeaderProfil">
-            {/* <img src={img2} alt="" class="logo2"/>   */}
             <Profilepopper />
             <h5 className="ts"> Profile</h5>
             </div>
-            <div className="HeaderCart">
-            {/* <img src={img4} alt="" style={{backgroundColor:'transperent',border:null,borderColor:'transparent'}} class="logo3"/>  */}
-            <ShoppingCartOutlinedIcon/>
+            <div className="HeaderCart"  >
+            <ShoppingCartOutlinedIcon onClick={()=>(history.push('/Wishlist'))}/>
             <h5 className="ts"> Cart</h5>
             </div>
         </div>

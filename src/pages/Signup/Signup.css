@@ -1,12 +1,12 @@
 .FullName,.PhoneNumber,.Email,.Password{
     height: 2vh;  
     width: 75%;
-    margin-top: 5px;
+    margin-top: 0px;
     font:normal 10px "Product Sans";
     font-family: Arial,sans-serif;  
 }
 .EmailInput,.PasswordInput{
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .loginsecondrow2aa{
     font:normal 20px "Product Sans";
@@ -15,6 +15,10 @@
 }
 .loginsecondrow2bb{
     font:normal 20px "Product Sans";
+    font-family: Arial,sans-serif;     
+}
+#errormsg{
+    font:normal 9px "Product Sans";
     font-family: Arial,sans-serif; 
-    
+    color: red;    
 }
