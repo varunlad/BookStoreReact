@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import RouterDom from './pages/Router/Router';
 import Home from './component/Home/Home';
 import Wishlist from './component/Wishlist/Wishlist';
+import Orders from './component/Orders/Orders';
+import PleaseLogin from './component/PleaseLogin/PleaseLogin';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       {/* <Forgotpassword /> */}
       {/* <Dashboard /> */}
       <RouterDom />
+      {/* <PleaseLogin /> */}
+      {/* <Orders /> */}
       {/* <Wishlist /> */}
       {/* <Home /> */}
     </div>

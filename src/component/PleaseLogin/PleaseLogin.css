@@ -1,0 +1,24 @@
+.pleaseloginouter{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.plaeasrloginInner{
+    height: 50vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+.bigtext{
+    font:normal 20px "Product Sans";
+    font-family: Arial,sans-serif;    
+}
+.pleaseloginimg{
+    width: 180px;
+    padding: 10px;
+    margin-right: 25px;
+}

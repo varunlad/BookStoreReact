@@ -1,0 +1,15 @@
+.BookHeaderOrders{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    width: 70%;
+    position: relative;
+    left: 270px; 
+}
+.OrderDate{
+    height: 5vh;
+    width: 20%;
+    margin-bottom: 50px;
+    position: relative;
+    left: 370px;
+}
