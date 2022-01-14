@@ -27,6 +27,7 @@
 }
 .Books{
     display: flex;
+    flex-wrap: wrap;
     height: 90vh;
     width: 72%;
     position: relative;

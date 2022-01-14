@@ -21,3 +21,7 @@ export const forgotpassword=async(tempemail) => {
     let response=await axios.post(`https://localhost:44385/api/forgotpassword?email=${tempemail}`,null)
     return response
 }
+export const getBooks = async() =>{
+    let response = await axios.get(`https://localhost:44385/api/getallbooks`)
+    return response
+}
