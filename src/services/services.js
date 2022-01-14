@@ -15,3 +15,9 @@ export const login=async(obj) => {
         let response=await axios.post("https://localhost:44385/api/register",obj)
         return response
 }
+
+export const forgotpassword=async(tempemail) => {
+    console.log(tempemail)
+    let response=await axios.post(`https://localhost:44385/api/forgotpassword?email=${tempemail}`,null)
+    return response
+}
