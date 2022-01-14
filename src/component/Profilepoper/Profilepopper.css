@@ -5,6 +5,7 @@
 }
 .popup{
     border: 1px solid gray;
+    background-color: white;
     height: 22vh;
     width:14vw;
     margin-top: 26px;

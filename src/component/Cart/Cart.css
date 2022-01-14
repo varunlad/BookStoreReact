@@ -1,0 +1,142 @@
+.location{
+    height: 29px;    
+    display:flex;
+    align-items: center;
+    margin-top: 9px;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.BookCartHeader{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    width: 70%;
+    position: relative;
+    left: 70px; 
+}
+
+.map{
+    width:15px;
+    height:19px;
+}
+
+.current{
+    font-size: 10px;
+    font-weight: bolder;
+    width: 164px;
+}
+
+.wishlistContainer1{
+    display: flex;
+    height: 150px;
+    align-items: center;
+}
+.orderDescription1{
+    display: flex;
+    flex-direction: column;
+    width: 624px;   
+    gap:10px;
+}
+.placeOrder{
+    display: flex;
+    width: 90%;
+    position: relative;
+    left: 60px;
+    height: 222px;
+    flex-direction: column;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.quantity{
+    width: 117px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.one{
+    width: 26px;
+    height: 22px;
+    text-align: center;
+    border:1px solid rgb(180, 180, 180);
+}
+
+.continueShopping1{
+    background-color: rgb(85 82 247);
+    width: 168px;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    position: relative;
+    left: 705px;
+}
+
+.heading1{
+    display: flex;
+    justify-content: space-between;
+    width: 893px;
+}
+
+.addressDetails{
+    margin-left: 60px;
+    width: 90%;
+    height: fit-content;
+    border: 1px solid rgb(180, 180, 180);
+}
+
+#summery{
+    margin-top: 10px;
+    margin-left: 27px;
+}
+.MainHeadercart{
+    height: 90vh;
+    width: 100%;
+ 
+}
+.orders{
+    border: 1pxsolid red;
+}
+.orders{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw;
+    height: fit-content;
+    position: relative;
+    left: 161px;
+    gap: 5px;
+}
+
+.datecontainer{
+    height: 80px;    
+    display:flex;
+}
+
+.greenDot{
+    width: 7px;
+    height: 7px;
+    background-color: #26A541;
+    border-radius: 50%;
+    margin-top: 7px;
+    margin-right: 4px;
+}
+.date{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.orderDescription1{
+    display: flex;
+    flex-direction: column;
+    width: 640px;   
+    gap:10px;
+    margin-left: 30px;
+}
+.BookImage{
+    margin-left: 10px;
+}
+.cartFooter{
+    position: relative;
+    top: 500px;
+}

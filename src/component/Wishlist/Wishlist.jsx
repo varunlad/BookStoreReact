@@ -4,14 +4,16 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import img from '../../asserts/learnux.png'
 import img1 from '../../asserts/material.png'
+import { useHistory } from "react-router-dom";
 
 function Wishlist() {
+    let history=useHistory();
     return (
         <div className="MainHeader">
         <Header />      
         <div  className="BookContent">
         <div className="BookHeader">
-            <div className="WishList1">Home/</div>
+            <div className="WishList1" onClick={()=>(history.push('/Home'))}>Home/</div>
             <div className="Wishlist2"><b id="Wishlist2">MyWishlist</b></div>
             </div>
             <div className="Wishlist">

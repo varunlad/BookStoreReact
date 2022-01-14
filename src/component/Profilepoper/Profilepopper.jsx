@@ -34,11 +34,11 @@ function Profilepopper() {
             <div className="pop4">
               ---------------------------------------------- 
             </div>
-            <div className="pop5">
+            <div className="pop5" onClick={()=>(history.push('/myorders'))}>
               <img src={img} class="heart" />
                 My Orders
             </div>
-            <div className="pop6">
+            <div className="pop6" onClick={()=>(history.push('/Wishlist'))}>
             <img src={img3} class="heart" />
                 Wishlist
             </div>

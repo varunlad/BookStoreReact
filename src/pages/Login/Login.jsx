@@ -6,8 +6,9 @@ import { Button } from 'antd';
 import img from '../../asserts/2766594@2x.png'
 import { Input, Space } from 'antd';
 import { useHistory } from "react-router-dom";
+import { login } from '../../services/services';
 const emailRegex = /^[a-zA-Z0-9]+([.#_$+-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$/
-const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+const passwordRegex = /^[a-zA-Z0-9]{1,}[A-Z]*[0-9]*[@&#%$_-][a-zA-Z0-9]*$/
 
 function Login(props) {
     const [errorObj, setErrorObj] = React.useState(
@@ -16,13 +17,13 @@ function Login(props) {
         emailBorder:"",
         passBorder:""})
 
-    const [loginObj, setLoginObj] = React.useState({email:"",pass:""})
+    const [loginObj, setLoginObj] = React.useState({email:"",password:""})
     const takeEmailValue = (e) => {
         console.log(e.target.value)
         setLoginObj({...loginObj,email:e.target.value})
     }
     const takePasswordValue = (e) => {
-        setLoginObj({...loginObj,pass:e.target.value})
+        setLoginObj({...loginObj,password:e.target.value})
     }
 
     let history=useHistory();
@@ -32,7 +33,7 @@ function Login(props) {
     }
     const Submmit =(e)=>{
         console.log(loginObj)
-        if (emailRegex.test(loginObj.email)!==true && (passwordRegex.test(loginObj.pass))!==true)
+        if (emailRegex.test(loginObj.email)!==true && (passwordRegex.test(loginObj.password))!==true)
         {
             console.log("In if part")
             setErrorObj({emailRedColor:"red",
@@ -40,13 +41,13 @@ function Login(props) {
             emailBorder:"1px solid red",
             passBorder:"1px solid red"})
         }
-        else if (emailRegex.test(loginObj.email)===true && (passwordRegex.test(loginObj.pass))!==true) {
+        else if (emailRegex.test(loginObj.email)===true && (passwordRegex.test(loginObj.password))!==true) {
             setErrorObj({emailRedColor:"",
             passRedColor:"red",
             emailBorder:"",
             passBorder:"1px solid red"})
         }
-        else if (emailRegex.test(loginObj.email)!==true && (passwordRegex.test(loginObj.pass))===true){
+        else if (emailRegex.test(loginObj.email)!==true && (passwordRegex.test(loginObj.password))===true){
             setErrorObj({emailRedColor:"red",
             passRedColor:"",
             emailBorder:"1px solid red",
@@ -57,7 +58,16 @@ function Login(props) {
             passRedColor:"",
             emailBorder:"",
             passBorder:""})
+            login(loginObj).then((resp)=>{
+                console.log(resp)
+                localStorage.setItem("token",resp.data.token)
+                localStorage.setItem("UserId",resp.data.data.userId)
+                history.push('/Home')
+            }).catch((err)=>{
+                console.log(err)
+            })
             }
+            
     }
     return (
         <div className="login-main">
@@ -87,14 +97,14 @@ function Login(props) {
                      <p onClick={()=>(history.push('/forgotpassword'))} >Forgot Password?</p>
                  </div>
                  <div className="LoginButton">
-                     <Button type="primary" danger style={{width:280}} onClick={Submmit}>Login</Button>   
+                 <Button style={{width:280,backgroundColor:'maroon',color:'white'}} onClick={Submmit} >Login</Button>
                  </div>
                  <div className="or">
                      <p>-------------    OR     -------------</p>
                  </div>
                  <div className="Bottom">
                      <div className="BottomA">
-                     <Button type="primary" style={{width:120}} >FaceBook</Button>
+                     <Button  style={{width:120,backgroundColor:'navy',color:'white'}} >FaceBook</Button>
                      </div>
                      <div className="BottomB">
                      <Button style={{width:120,backgroundColor:'whitesmoke'}} >Google</Button>

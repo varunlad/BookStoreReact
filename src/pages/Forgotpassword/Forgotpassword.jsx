@@ -31,7 +31,7 @@ function Forgotpassword() {
                  <Input  size="middle" style={{width:230,backgroundColor:'transparent'}}  />
                  </div>
                  <div className="LoginButton">
-                     <Button type="primary" danger style={{width:230}}>Reset Password</Button>   
+                     <Button style={{width:230,backgroundColor:'maroon',color:'white'}}>Reset Password</Button>   
                  </div>
                  <div className="forgotcreateaccount"> 
                     <Button type="text" onClick={()=>(history.push('/'))}  style={{width:120,backgroundColor:'whitesmoke'}}>Create Account</Button>                

@@ -4,58 +4,74 @@ import "antd/dist/antd.css";
 import { Button } from 'antd';
 import img from '../../asserts/2766594@2x.png'
 import { Input, Space } from 'antd';
+import { useHistory } from "react-router-dom";
+import { registers } from '../../services/services';
+
 const nameRegex=/^[A-Z]{1}[a-z]{2,}$/
-    const emailSignUpRegex=/^[a-zA-Z0-9]+[._+-]{0,1}[a-zA-Z0-9]@[a-zA-Z0-9]{1,10}.[a-zA-Z]{2,10}[.][a-zA-Z]*$/
-    const psSignUpRegex=/^[a-zA-Z0-9]{1,}[A-Z][0-9][@&#%$_-][a-zA-Z0-9]*$/
+    const emailUpRegex=/^[a-zA-Z0-9]+[._+-]{0,1}[a-zA-Z0-9]@[a-zA-Z0-9]{1,10}.[a-zA-Z]{2,10}[.][a-zA-Z]*$/
+    const psSignUpRegex=/^[a-zA-Z0-9]{1,}[A-Z]*[0-9]*[@&#%$_-][a-zA-Z0-9]*$/
     const numberRegex=/^[0-9]{10}$/
 
 
 function Signup(props) {
-    const[signUpError,setSignUpError]=React.useState({firstBorder:"",firstErrorMsg:"",lastBorder:"",lastErrorMsg:"",emailSignUpBorder:"",emailSignUpErrorMsg:"",psSignUpBorder:"",psSignUpErrorMsg:""})
-    const[signUpObj,setSignUpObj]=React.useState({firstNameSign:"",emailSign:"",passwordSign:"",numberSign:""})
+    let history=useHistory();
+    const[signUpError,setSignUpError]=React.useState({firstBorder:"",firstErrorMsg:"",lastBorder:"",lastErrorMsg:"",emailUpBorder:"",emailUpErrorMsg:"",psSignUpBorder:"",psSignUpErrorMsg:""})
+    const[signUpObj,setSignUpObj]=React.useState({fullName:"",email:"",password:"",phoneNumber:null})
+    // const testObj={
+    //     "fullName": "Srabhai",
+    //     "email": "sarabhai12@gmail.com",
+    //     "password": "Varun@12344",
+    //     "phoneNumber": 9087678909
+    //   }
     const takeclick =  () => {
         console.log(props)
         props.listentologinnote1(false)
     }
     const takeFullName=(e) => {
-        setSignUpObj({...signUpObj,firstNameSign:e.target.value})
+        setSignUpObj({...signUpObj,fullName:e.target.value})
     }
 
-    const takeEmailSignUp=(e) => {
-        setSignUpObj({...signUpObj,emailSign:e.target.value})
+    const takeemailUp=(e) => {
+        setSignUpObj({...signUpObj,email:e.target.value})
     }
 
     const takeSignUpPassword=(e) => {
-        setSignUpObj({...signUpObj,passwordSign:e.target.value})
+        setSignUpObj({...signUpObj,password:e.target.value})
     }
 
     const takeNumber=(e) => {
-        setSignUpObj({...signUpObj,numberSign:e.target.value})
+        setSignUpObj({...signUpObj,phoneNumber:parseFloat(e.target.value)})
     }
     const register=() => {
         console.log(signUpObj)
-        if((nameRegex.test(signUpObj.firstNameSign)==true) && (numberRegex.test(signUpObj.numberSign)==true) && (emailSignUpRegex.test(signUpObj.emailSign)==true) && (psSignUpRegex.test(signUpObj.passwordSign)==true)) {
+        if((nameRegex.test(signUpObj.fullName)==true) && (numberRegex.test(signUpObj.phoneNumber)==true) && (emailUpRegex.test(signUpObj.email)==true) && (psSignUpRegex.test(signUpObj.password)==true)) {
             console.log(true)
             setSignUpError("")
+            registers(signUpObj).then((resp) => {   
+                console.log(resp)
+                history.push('/')
+            }).catch((err) => {           
+                console.log(err)
+            })
         }     
-        else if((nameRegex.test(signUpObj.firstNameSign)==false) &&  (numberRegex.test(signUpObj.numberSign)==true) && (emailSignUpRegex.test(signUpObj.emailSign)==true) && (psSignUpRegex.test(signUpObj.passwordSign)==true)){
+        else if((nameRegex.test(signUpObj.fullName)==false) &&  (numberRegex.test(signUpObj.phoneNumber)==true) && (emailUpRegex.test(signUpObj.email)==true) && (psSignUpRegex.test(signUpObj.password)==true)){
             console.log(false)
             setSignUpError({firstBorder:"1px solid red",firstErrorMsg:"Invalid fullname"})
         }
-        else if((numberRegex.test(signUpObj.numberSign)==false) && (nameRegex.test(signUpObj.firstNameSign)==true) && (emailSignUpRegex.test(signUpObj.emailSign)==true) && (psSignUpRegex.test(signUpObj.passwordSign)==true)){
+        else if((numberRegex.test(signUpObj.phoneNumber)==false) && (nameRegex.test(signUpObj.fullName)==true) && (emailUpRegex.test(signUpObj.email)==true) && (psSignUpRegex.test(signUpObj.password)==true)){
             console.log(false)
             setSignUpError({lastBorder:"1px solid red",lastErrorMsg:"Invalid number"})
         }
-        else if((emailSignUpRegex.test(signUpObj.emailSign)==false && (nameRegex.test(signUpObj.firstNameSign)==true) && (numberRegex.test(signUpObj.numberSign)==true) && (psSignUpRegex.test(signUpObj.passwordSign)==true))){
+        else if((emailUpRegex.test(signUpObj.email)==false && (nameRegex.test(signUpObj.fullName)==true) && (numberRegex.test(signUpObj.phoneNumber)==true) && (psSignUpRegex.test(signUpObj.password)==true))){
             console.log(false)
-            setSignUpError({emailSignUpBorder:"1px solid red",emailSignUpErrorMsg:"Invalid email"})
+            setSignUpError({emailUpBorder:"1px solid red",emailUpErrorMsg:"Invalid email"})
         }
-        else if((psSignUpRegex.test(signUpObj.passwordSign)==false) && (nameRegex.test(signUpObj.firstNameSign)==true) && (numberRegex.test(signUpObj.numberSign)==true) && (emailSignUpRegex.test(signUpObj.emailSign)==true)){
+        else if((psSignUpRegex.test(signUpObj.password)==false) && (nameRegex.test(signUpObj.fullName)==true) && (numberRegex.test(signUpObj.phoneNumber)==true) && (emailUpRegex.test(signUpObj.email)==true)){
             console.log(false)
             setSignUpError({psSignUpBorder:"1px solid red",psSignUpErrorMsg:"Invalid password"})
         }
         else{
-            setSignUpError({firstBorder:"1px solid red",firstErrorMsg:"Enter fullname",lastBorder:"1px solid red",lastErrorMsg:"Enter Number",emailSignUpBorder:"1px solid red",emailSignUpErrorMsg:"Enter email",psSignUpBorder:"1px solid red",psSignUpErrorMsg:"Enter password"})
+            setSignUpError({firstBorder:"1px solid red",firstErrorMsg:"Enter fullname",lastBorder:"1px solid red",lastErrorMsg:"Enter Number",emailUpBorder:"1px solid red",emailUpErrorMsg:"Enter email",psSignUpBorder:"1px solid red",psSignUpErrorMsg:"Enter password"})
         }
     }
     return (
@@ -82,8 +98,8 @@ function Signup(props) {
                      <div className="text">Email</div>
                  </div>
                  <div className="EmailInput">
-                 <Input  size="middle" style={{width:280,backgroundColor:'transparent',border:signUpError.emailSignUpBorder}}  onChange={takeEmailSignUp} />
-                 <p id="errormsg">{signUpError.emailSignUpErrorMsg}</p>
+                 <Input  size="middle" style={{width:280,backgroundColor:'transparent',border:signUpError.emailUpBorder}}  onChange={takeemailUp} />
+                 <p id="errormsg">{signUpError.emailUpErrorMsg}</p>
                  </div>
                  
                  <div className="Password">
@@ -103,7 +119,7 @@ function Signup(props) {
                  </div>
                  
                  <div className="LoginButton">
-                     <Button type="primary" danger style={{width:280}} onClick={register}>SignUp</Button>   
+                     <Button style={{width:280,backgroundColor:'maroon',color:'white'}} onClick={register}>SignUp</Button>   
                  </div>                
              </div>
              </div>   

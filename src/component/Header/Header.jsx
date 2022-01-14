@@ -30,7 +30,7 @@ function Header() {
             <h5 className="ts"> Profile</h5>
             </div>
             <div className="HeaderCart"  >
-            <ShoppingCartOutlinedIcon onClick={()=>(history.push('/Wishlist'))}/>
+            <ShoppingCartOutlinedIcon onClick={()=>(history.push('/cart'))} />
             <h5 className="ts"> Cart</h5>
             </div>
         </div>
