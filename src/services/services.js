@@ -33,3 +33,11 @@ export const getBookByIdCall = async () => {
     let response = await axios.get(`https://localhost:44385/api/getbook?Bookid=${parseInt(localStorage.getItem("BookId"))}`)
     return response
 }
+export const Addtocart = async (obj) => {
+    let response = await axios.post("https://localhost:44385/api/addcart",obj)
+    return response
+}
+export const AddtoWishlist = async () => {
+    let response = await axios.post(`https://localhost:44385/api/addwishlist?UserId=${parseInt(localStorage.getItem("UserId"))}&BookId=${parseInt(localStorage.getItem("BookId"))}`)
+    return response
+}

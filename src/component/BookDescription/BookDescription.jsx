@@ -2,14 +2,34 @@ import React from 'react'
 import './BookDescription.css'
 import Header from '../Header/Header'
 import BookImage from '../../asserts/dont1.png'
-import { getBookByIdCall } from '../../services/services'
+import { useHistory } from 'react-router-dom';
+import { Addtocart, AddtoWishlist, getBookByIdCall } from '../../services/services'
 function BookDescription() {
-    
-    const [booklist,setBookList] = React.useState({});
-
+    let history=useHistory();
+    const [booklist,setBookList] = React.useState([]);
+    const AddCart =() =>{
+        let obj = {
+            userId: parseInt(localStorage.getItem("UserId")),
+            bookId: booklist.bookId
+            }
+            Addtocart(obj).then((response)=>{
+                console.log(response);
+                alert("Book added to Cart");
+            }).catch(err => {
+                console.log(err);
+            })
+    }
+    const AddWishList =() =>{
+        AddtoWishlist().then((response)=>{
+                console.log(response);
+                alert("Book added to WishList");
+            }).catch(err => {
+                console.log(err);
+            })
+    }
     React.useEffect(()=>{
         getBookByIdCall().then((response)=>{
-            setBookList(response.data.data[0])
+            setBookList(response.data.data)
         }).catch(err => {console.log(err)})
     },[]);
     return (
@@ -17,7 +37,7 @@ function BookDescription() {
         <Header />      
           {/* <Header/> */}
           <p className="paths">
-             <button className = "gotohome"> Home/ </button><span id="pathtobook">Book</span>
+             <button className = "gotohome" onClick={()=>(history.push('/Home'))} > Home/ </button><span id="pathtobook">Book</span>
              </p>
 
         <div className="imagebox">
@@ -25,9 +45,9 @@ function BookDescription() {
          </div>
         <div className="tagbuttons">
            
-        <button id="addtobag">ADD TO BAG</button> 
+        <button id="addtobag" onClick={AddCart}>ADD TO BAG</button> 
        
-       <button id="wishlist">❤ WISHLIST</button> 
+       <button id="wishlist" onClick={AddWishList} >❤ WISHLIST</button> 
        
         </div>
         <div className = "description">
@@ -35,16 +55,16 @@ function BookDescription() {
           <p id="booktitle">{booklist.bookName}</p>
             <p id ="authorbook">{booklist.author}</p>
           <div className="ratingbox">
-                <span>4★</span>
+                <span>{booklist.rating}★</span>
             </div>
-             <span className="countreviewbook">(20)</span>
-             <span className="bookprice">Rs. 1500</span> 
-             <span className="originalprice"><s>Rs. 2000</s></span>
+             <span className="countreviewbook">({booklist.quantity})</span>
+             <span className="bookprice">Rs. {booklist.price}</span> 
+             <span className="originalprice"><s>Rs. {booklist.discountPrice}</s></span>
              <hr className="borderline"></hr>
 
          <div className="descriptionofbookdetails">
         <ul id="caption"><li>Book Detail</li></ul>
-         <p id="Bookparagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint vero molestias blanditiis fuga ipsa voluptatem, atque consectetur repellat repellendus? Eaque libero quaerat tenetur obcaecati aliquam sint, sit illo veritatis quisquam.</p>
+         <p id="Bookparagraph">{booklist.detail}</p>
          <hr className="borderline"></hr> 
         </div>
 
