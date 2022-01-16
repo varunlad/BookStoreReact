@@ -1,19 +1,27 @@
 import React from 'react'
 import './BookDescription.css'
 import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
 import BookImage from '../../asserts/dont1.png'
+import { getBookByIdCall } from '../../services/services'
 function BookDescription() {
+    
+    const [booklist,setBookList] = React.useState({});
+
+    React.useEffect(()=>{
+        getBookByIdCall().then((response)=>{
+            setBookList(response.data.data[0])
+        }).catch(err => {console.log(err)})
+    },[]);
     return (
         <div className="MainHeader">
         <Header />      
           {/* <Header/> */}
           <p className="paths">
-             <button className = "gotohome"> Home / </button><span id="pathtobook">Book</span>
+             <button className = "gotohome"> Home/ </button><span id="pathtobook">Book</span>
              </p>
 
         <div className="imagebox">
-        <img src={BookImage} alt="Image" className = "booklogo" />
+        <img src={booklist.image} alt="Image" className = "booklogo" />
          </div>
         <div className="tagbuttons">
            
@@ -24,8 +32,8 @@ function BookDescription() {
         </div>
         <div className = "description">
              <div className="detailsofbook">
-          <p id="booktitle">Don't Make Me Think</p>
-            <p id ="authorbook">by Steve Krug</p>
+          <p id="booktitle">{booklist.bookName}</p>
+            <p id ="authorbook">{booklist.author}</p>
           <div className="ratingbox">
                 <span>4★</span>
             </div>
