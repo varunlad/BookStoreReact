@@ -45,3 +45,8 @@
     margin-top: 10px;
     justify-content: space-evenly;
 }
+.Deleteicon{
+    position: relative;
+    left: 700px;
+    bottom: 50px;
+}

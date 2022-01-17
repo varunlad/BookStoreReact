@@ -29,7 +29,7 @@ function WhishlistComponent(props) {
        <b> Rs. {props.allwishlist.bookModelRef.price}</b>
        <p id="div2da">Rs. {props.allwishlist.bookModelRef.discountPrice}</p>
     </div>
-    <DeleteOutlined  onClick={removeWish} />
+    <DeleteOutlined className="Deleteicon" onClick={removeWish} />
         </div>
     </div>
     )
