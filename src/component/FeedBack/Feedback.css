@@ -1,0 +1,7 @@
+.reviewContainer{
+    height: 10vh;
+    width: 40%;
+    position: relative;
+    bottom: 70px;
+    margin: 5px;  
+}

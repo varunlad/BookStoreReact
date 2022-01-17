@@ -9,6 +9,7 @@ import { CaretDownOutlined,PlusCircleOutlined,MinusCircleOutlined } from '@ant-d
 import Address from '../Address/Address'
 function Cart() {
     let history = useHistory();
+    const [bookCount, setBookCount] = React.useState(1);
     const[switchContainers, setSwitchContainers]= React.useState(true)
     const listenAddress = () => {
         setSwitchContainers(false)
@@ -19,6 +20,17 @@ function Cart() {
             setSwitchContainers(true)
         }
     }
+
+    const IncrementCount = () => {
+        setBookCount(bookCount+1)
+    }
+    let DecrementCount = () => {
+        setBookCount(bookCount-1)
+    }
+    if(bookCount<=0){
+        setBookCount(1)
+    }
+    
     return (
         <div className="MainHeadercart">
         <Header />      
@@ -48,9 +60,9 @@ function Cart() {
                                 <div className="original1">Rs. 2000</div>
                             </div>
                             <div className="quantity">
-                                <MinusCircleOutlined style={{color:'grey'}}/>
-                                <div className="one">  1</div>
-                                <PlusCircleOutlined style={{color:'grey'}}/>
+                                <MinusCircleOutlined onClick={DecrementCount} style={{color:'grey'}}/>
+                                <div className="one">{bookCount}</div>
+                                <PlusCircleOutlined onClick={IncrementCount} style={{color:'grey'}}/>
                                 <div style={{fontSize:10, marginLeft:14}}>Remove</div>
                             </div> 
                         </div>

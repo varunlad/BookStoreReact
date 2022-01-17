@@ -49,3 +49,7 @@ export const getOrderlist = async () => {
     let response = await axios.get(`https://localhost:44385/api/getorder?UserId=${parseInt(localStorage.getItem("UserId"))}`)
     return response
 }
+export const getFeedback = async () => {
+    let response = await axios.get(`https://localhost:44385/api/getfeedback?BookId=${parseInt(localStorage.getItem("BookId"))}`)
+    return response
+}

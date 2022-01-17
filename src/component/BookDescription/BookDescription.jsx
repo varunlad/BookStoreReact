@@ -3,9 +3,11 @@ import './BookDescription.css'
 import Header from '../Header/Header'
 import BookImage from '../../asserts/dont1.png'
 import { useHistory } from 'react-router-dom';
-import { Addtocart, AddtoWishlist, getBookByIdCall } from '../../services/services'
+import { Addtocart, AddtoWishlist, getBookByIdCall, getFeedback } from '../../services/services'
+import Feedback from '../FeedBack/Feedback';
 function BookDescription() {
     let history=useHistory();
+    const[feedbackArray, setFeedbackArray] = React.useState([])
     const [booklist,setBookList] = React.useState([]);
     const AddCart =() =>{
         let obj = {
@@ -32,6 +34,18 @@ function BookDescription() {
             setBookList(response.data.data)
         }).catch(err => {console.log(err)})
     },[]);
+    const GetFeedback =() => {
+        getFeedback().then((resp) => {
+        console.log(resp.data.data)  
+        setFeedbackArray(resp.data.data)  
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+React.useEffect(() =>{
+    GetFeedback()  
+   },[])
+    const feedbackList=feedbackArray.map((x)=>(<Feedback key={x.bookId} allFeedback={x} />))
     return (
         <div className="MainHeader">
         <Header />      
@@ -80,8 +94,9 @@ function BookDescription() {
         <div className="submitbutton">Submit</div>
         </div>
         </div>
-</div>
+       </div>
         </div>
+        {feedbackList}
         </div>
         </div>
         </div>

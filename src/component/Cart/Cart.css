@@ -140,3 +140,7 @@
     position: relative;
     top: 500px;
 }
+
+.original1{
+    text-decoration: line-through;
+}
