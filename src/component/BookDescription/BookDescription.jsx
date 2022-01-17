@@ -3,12 +3,17 @@ import './BookDescription.css'
 import Header from '../Header/Header'
 import BookImage from '../../asserts/dont1.png'
 import { useHistory } from 'react-router-dom';
-import { Addtocart, AddtoWishlist, getBookByIdCall, getFeedback } from '../../services/services'
+import Rating from '@mui/material/Rating';
+import { Addtocart, AddtoFeedback, AddtoWishlist, getBookByIdCall, getFeedback } from '../../services/services'
 import Feedback from '../FeedBack/Feedback';
+
 function BookDescription() {
     let history=useHistory();
+    const [value, setValue] = React.useState(2);
+    const [updateFeedback,setupdateFeedback] = React.useState(false);
     const[feedbackArray, setFeedbackArray] = React.useState([])
     const [booklist,setBookList] = React.useState([]);
+    const[feedbackObj,setFeedbackObj]=React.useState({BookId:parseInt(localStorage.getItem("BookId")),UserId:parseInt(localStorage.getItem("UserId")),comments:null,ratings:3})
     const AddCart =() =>{
         let obj = {
             userId: parseInt(localStorage.getItem("UserId")),
@@ -21,6 +26,9 @@ function BookDescription() {
                 console.log(err);
             })
     }
+    const takeComments=(e) => {
+        setFeedbackObj({...feedbackObj,comments:e.target.value})
+    }
     const AddWishList =() =>{
         AddtoWishlist().then((response)=>{
                 console.log(response);
@@ -32,6 +40,7 @@ function BookDescription() {
     React.useEffect(()=>{
         getBookByIdCall().then((response)=>{
             setBookList(response.data.data)
+            GetFeedback()
         }).catch(err => {console.log(err)})
     },[]);
     const GetFeedback =() => {
@@ -42,10 +51,15 @@ function BookDescription() {
         console.log(err)
     })
 }
-React.useEffect(() =>{
-    GetFeedback()  
-   },[])
-    const feedbackList=feedbackArray.map((x)=>(<Feedback key={x.bookId} allFeedback={x} />))
+   const AddFeedback=()=>{
+    AddtoFeedback(feedbackObj).then((resp) => {
+        console.log(resp) 
+        GetFeedback()
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+    const feedbackList=feedbackArray.map((x)=>(<Feedback key={x.bookId}  allFeedback={x} />))
     return (
         <div className="MainHeader">
         <Header />      
@@ -88,10 +102,16 @@ React.useEffect(() =>{
         <div className="rating-pad">
         <div className="overallrating">
         <p className="para-for-overallrating"> Overall rating</p>
-           <div id="stars">☆ ☆ ☆ ☆ ☆ </div>
+           <div id="stars"><Rating
+                name="simple-controlled"
+                value={value}
+                onChange={(event, newValue) => {
+                    setFeedbackObj({...feedbackObj,ratings:newValue});
+                    setValue(newValue);
+            }} /></div>
         <div className="writereview">
-           <input className="input-for-review" type="text" placeholder="Write your review" /> 
-        <div className="submitbutton">Submit</div>
+           <input className="input-for-review" type="text" placeholder="Write your review" onChange={takeComments}/>
+        <div className="submitbutton" onClick={AddFeedback}>Submit</div>
         </div>
         </div>
        </div>

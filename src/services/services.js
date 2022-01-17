@@ -53,3 +53,7 @@ export const getFeedback = async () => {
     let response = await axios.get(`https://localhost:44385/api/getfeedback?BookId=${parseInt(localStorage.getItem("BookId"))}`)
     return response
 }
+export const AddtoFeedback = async (obj) => {
+    let response = await axios.post("https://localhost:44385/api/addfeedback",obj)
+    return response
+}

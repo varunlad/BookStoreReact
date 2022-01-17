@@ -15,7 +15,6 @@ function Home() {
     }).catch((err) => {
         console.log(err)
     })
-
 }
 React.useEffect(() =>{
     GetBooks()  
