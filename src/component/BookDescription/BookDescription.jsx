@@ -35,7 +35,6 @@ function BookDescription() {
     return (
         <div className="MainHeader">
         <Header />      
-          {/* <Header/> */}
           <p className="paths">
              <button className = "gotohome" onClick={()=>(history.push('/Home'))} > Home/ </button><span id="pathtobook">{booklist.bookName}</span>
              </p>
