@@ -2,8 +2,6 @@ import React from 'react'
 import './Orders.css'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import img from '../../asserts/learnux.png'
-import img1 from '../../asserts/material.png'
 import { useHistory } from "react-router-dom";
 import OrdersComponent from './OrdersComponent'
 import { getOrderlist } from '../../services/services'
