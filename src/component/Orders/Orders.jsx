@@ -5,9 +5,19 @@ import Footer from '../Footer/Footer'
 import img from '../../asserts/learnux.png'
 import img1 from '../../asserts/material.png'
 import { useHistory } from "react-router-dom";
+import OrdersComponent from './OrdersComponent'
+import { getOrderlist } from '../../services/services'
 
 function Orders() {
     let history=useHistory();
+    const [presentOrders,setPresentOrders] = React.useState([]);
+    React.useEffect(()=>{
+        getOrderlist().then((response)=>{           
+            console.log(response)
+            setPresentOrders(response.data.data)                        
+            }).catch(err => {console.log(err)})
+        },[]);
+    const Orderlist=presentOrders.map((x)=>(<OrdersComponent key={x.wishListId}  allOrder={x} />))
     return (
         <div className="MainHeader">
         <Header />      
@@ -17,28 +27,8 @@ function Orders() {
             <div className="Wishlist2"><b id="Wishlist2">MyOrders</b></div>
             </div>
             <div className="Wishlist">
-                <div className="WishlistSection2">
-                    <div className="wishlistpart1">
-                    <img src={img} class="wish" />
-                    </div>
-                    <div className="wishlistpart2">
-                    <div>
-                  <b> Learn UX</b>
-                </div>
-                <div className="fainttext">
-                    by varunlad
-                </div>
-                <div className="div2d">
-                   <b> Rs. 1500</b>
-                   <p id="div2da">Rs. 2000</p>
-                </div>
-                    </div>
-                    <div className="OrderDate">
-                        <b>Order Placed on Jan 2022</b>
-                    </div>
-                </div>
-            </div>
-                      
+            {Orderlist}
+           </div>          
         </div>
         <Footer />
     </div>

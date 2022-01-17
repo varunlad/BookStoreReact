@@ -45,3 +45,7 @@ export const removeFromWishlist = async () => {
     let response = await axios.delete(`https://localhost:44385/api/Deletewishlist?WishListId=${parseInt(localStorage.getItem("WishId"))}`)
     return response
 }
+export const getOrderlist = async () => {
+    let response = await axios.get(`https://localhost:44385/api/getorder?UserId=${parseInt(localStorage.getItem("UserId"))}`)
+    return response
+}

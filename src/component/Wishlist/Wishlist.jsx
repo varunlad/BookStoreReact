@@ -24,7 +24,7 @@ function Wishlist() {
         }
     }
     const wishlist=presentWishlist.map((x)=>(<WhishlistComponent key={x.wishListId} listentoWishlist={listentoWishlist} allwishlist={x} />))
-    return (
+    return (                                                            
         <div className="MainHeader">
             
         <Header />      
