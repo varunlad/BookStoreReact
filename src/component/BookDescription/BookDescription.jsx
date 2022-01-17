@@ -37,7 +37,7 @@ function BookDescription() {
         <Header />      
           {/* <Header/> */}
           <p className="paths">
-             <button className = "gotohome" onClick={()=>(history.push('/Home'))} > Home/ </button><span id="pathtobook">Book</span>
+             <button className = "gotohome" onClick={()=>(history.push('/Home'))} > Home/ </button><span id="pathtobook">{booklist.bookName}</span>
              </p>
 
         <div className="imagebox">
@@ -58,8 +58,8 @@ function BookDescription() {
                 <span>{booklist.rating}★</span>
             </div>
              <span className="countreviewbook">({booklist.quantity})</span>
-             <span className="bookprice">Rs. {booklist.price}</span> 
-             <span className="originalprice"><s>Rs. {booklist.discountPrice}</s></span>
+             <span className="bookprice">Rs. {booklist.discountPrice}</span> 
+             <span className="originalprice"><s>Rs. {booklist.price}</s></span>
              <hr className="borderline"></hr>
 
          <div className="descriptionofbookdetails">
